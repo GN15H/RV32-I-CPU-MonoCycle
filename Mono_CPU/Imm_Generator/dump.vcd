@@ -1,0 +1,61 @@
+$date
+	Fri Apr 26 18:00:59 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module imm_gen_tb $end
+$var wire 32 ! ImmExt [31:0] $end
+$var reg 3 " ImmSrc [2:0] $end
+$var reg 25 # imm [24:0] $end
+$scope module dut $end
+$var wire 3 $ ImmSrc [2:0] $end
+$var wire 25 % imm [24:0] $end
+$var reg 32 & ImmExt [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1111 &
+b11110000000000000 %
+b0 $
+b11110000000000000 #
+b0 "
+b1111 !
+$end
+#10
+b11111111111111111111100000000010 !
+b11111111111111111111100000000010 &
+b1 "
+b1 $
+b1000000000000000000000010 #
+b1000000000000000000000010 %
+#20
+b100010 !
+b100010 &
+b101 "
+b101 $
+b1000000000000000010 #
+b1000000000000000010 %
+#30
+b1000000000000 !
+b1000000000000 &
+b10 "
+b10 $
+b100000 #
+b100000 %
+#40
+b1000000000010 !
+b1000000000010 &
+b110 "
+b110 $
+b100000000100000 #
+b100000000100000 %
+#50

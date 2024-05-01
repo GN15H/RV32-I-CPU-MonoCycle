@@ -1,0 +1,65 @@
+$date
+	Sun Feb 25 01:20:19 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module mux_tb $end
+$var wire 32 ! S [31:0] $end
+$var parameter 32 " amount_of_bits $end
+$var parameter 32 # amount_of_inputs $end
+$var reg 128 $ A [127:0] $end
+$var reg 3 % selector [2:0] $end
+$scope module uut $end
+$var wire 128 & A [127:0] $end
+$var wire 3 ' selector [2:0] $end
+$var parameter 32 ( amount_of_bits $end
+$var parameter 32 ) amount_of_inputs $end
+$var reg 32 * S [31:0] $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 + i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 )
+b100000 (
+b100 #
+b100000 "
+$end
+#0
+$dumpvars
+b100 +
+b0 *
+b0 '
+b11110000000000000000000000000000111100000000000000000000000000000000111100000000000000000000000000000000 &
+b0 %
+b11110000000000000000000000000000111100000000000000000000000000000000111100000000000000000000000000000000 $
+b0 !
+$end
+#10
+b1111 !
+b1111 *
+b100 +
+b1 %
+b1 '
+b11111111000000000000000000000000111100000000000000000000000000000000111100000000000000000000000000000000 $
+b11111111000000000000000000000000111100000000000000000000000000000000111100000000000000000000000000000000 &
+#20
+b100 +
+b11110000 !
+b11110000 *
+b10 %
+b10 '
+#30
+b100 +
+b11111111 !
+b11111111 *
+b11 %
+b11 '
+#40

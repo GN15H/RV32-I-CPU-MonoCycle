@@ -1,0 +1,92 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "F:\Cristobal\iverilog\lib\ivl\system.vpi";
+:vpi_module "F:\Cristobal\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "F:\Cristobal\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "F:\Cristobal\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "F:\Cristobal\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "F:\Cristobal\iverilog\lib\ivl\v2009.vpi";
+S_000001ff736dc300 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001ff736dc490 .scope module, "instruction_memory_tb" "instruction_memory_tb" 3 1;
+ .timescale 0 0;
+v000001ff737dc920_0 .net "instruction", 31 0, L_000001ff737dcf60;  1 drivers
+v000001ff737dd1e0_0 .var "program_counter", 31 0;
+S_000001ff737963b0 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 3 24, 3 24 0, S_000001ff736dc490;
+ .timescale 0 0;
+v000001ff737638a0_0 .var/2s "i", 31 0;
+S_000001ff73796540 .scope module, "dut" "instruction_memory" 3 8, 4 1 0, S_000001ff736dc490;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "program_counter";
+    .port_info 1 /OUTPUT 32 "instruction";
+v000001ff73763120_0 .net *"_ivl_0", 7 0, L_000001ff737dd5a0;  1 drivers
+L_000001ff737ddca0 .functor BUFT 1, C4<00000000000000000000000000000010>, C4<0>, C4<0>, C4<0>;
+v000001ff736dbb50_0 .net/2u *"_ivl_10", 31 0, L_000001ff737ddca0;  1 drivers
+v000001ff736dbbf0_0 .net *"_ivl_12", 31 0, L_000001ff737dd280;  1 drivers
+v000001ff737966d0_0 .net *"_ivl_14", 7 0, L_000001ff737dd320;  1 drivers
+L_000001ff737ddce8 .functor BUFT 1, C4<00000000000000000000000000000011>, C4<0>, C4<0>, C4<0>;
+v000001ff73796770_0 .net/2u *"_ivl_16", 31 0, L_000001ff737ddce8;  1 drivers
+v000001ff73793990_0 .net *"_ivl_18", 31 0, L_000001ff737dd3c0;  1 drivers
+v000001ff73793a30_0 .net *"_ivl_2", 7 0, L_000001ff737dce20;  1 drivers
+L_000001ff737ddc58 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v000001ff73793ad0_0 .net/2u *"_ivl_4", 31 0, L_000001ff737ddc58;  1 drivers
+v000001ff737dd780_0 .net *"_ivl_6", 31 0, L_000001ff737dcc40;  1 drivers
+v000001ff737dd000_0 .net *"_ivl_8", 7 0, L_000001ff737dd460;  1 drivers
+v000001ff737dd0a0_0 .net "instruction", 31 0, L_000001ff737dcf60;  alias, 1 drivers
+v000001ff737dd140 .array "memory", 512 0, 7 0;
+v000001ff737dd640_0 .net "program_counter", 31 0, v000001ff737dd1e0_0;  1 drivers
+L_000001ff737dd5a0 .array/port v000001ff737dd140, v000001ff737dd1e0_0;
+L_000001ff737dce20 .array/port v000001ff737dd140, L_000001ff737dcc40;
+L_000001ff737dcc40 .arith/sum 32, v000001ff737dd1e0_0, L_000001ff737ddc58;
+L_000001ff737dd460 .array/port v000001ff737dd140, L_000001ff737dd280;
+L_000001ff737dd280 .arith/sum 32, v000001ff737dd1e0_0, L_000001ff737ddca0;
+L_000001ff737dd320 .array/port v000001ff737dd140, L_000001ff737dd3c0;
+L_000001ff737dd3c0 .arith/sum 32, v000001ff737dd1e0_0, L_000001ff737ddce8;
+L_000001ff737dcf60 .concat [ 8 8 8 8], L_000001ff737dd320, L_000001ff737dd460, L_000001ff737dce20, L_000001ff737dd5a0;
+    .scope S_000001ff73796540;
+T_0 ;
+    %vpi_call/w 4 7 "$readmemh", "codigo.mem", v000001ff737dd140 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000001ff736dc490;
+T_1 ;
+    %vpi_call/w 3 15 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call/w 3 16 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001ff736dc490 {0 0 0};
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001ff737dd1e0_0, 0, 32;
+    %delay 100, 0;
+    %fork t_1, S_000001ff737963b0;
+    %jmp t_0;
+    .scope S_000001ff737963b0;
+t_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001ff737638a0_0, 0, 32;
+T_1.0 ;
+    %load/vec4 v000001ff737638a0_0;
+    %cmpi/s 22, 0, 32;
+    %jmp/0xz T_1.1, 5;
+    %delay 10, 0;
+    %load/vec4 v000001ff737dd1e0_0;
+    %addi 4, 0, 32;
+    %store/vec4 v000001ff737dd1e0_0, 0, 32;
+    %load/vec4 v000001ff737638a0_0;
+    %addi 1, 0, 32;
+    %cast2;
+    %store/vec4 v000001ff737638a0_0, 0, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %end;
+    .scope S_000001ff736dc490;
+t_0 %join;
+    %vpi_call/w 3 32 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    ".\instruction_memory_tb.v";
+    ".\instruction_memory.v";
